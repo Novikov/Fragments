@@ -13,6 +13,5 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.host_fragment, SimpleFabricKotlinFragment.newInstance(5))
             .commit()
 
-        
     }
 }

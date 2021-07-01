@@ -1,3 +1,3 @@
 rootProject.name = "Fragments"
-include ':app'
-include ':fragmentmanager'
+include ':fragment_creation'
+include ':fragment_manager'
