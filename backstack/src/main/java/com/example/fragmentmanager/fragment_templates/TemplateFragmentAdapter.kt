@@ -3,7 +3,7 @@ package com.example.fragmentmanager.fragment_templates
 import android.os.Bundle
 
 class TemplateFragmentAdapter {
-    private var position = 0
+    private var position = 1
 
     fun createFragment(): TemplateFragment {
         val fragment = TemplateFragment()

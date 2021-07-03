@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/backStackCountTextView_1"
+        android:id="@+id/back_stack_count_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backStackCountTextView_1">
+        app:layout_constraintTop_toBottomOf="@+id/back_stack_count_text_view">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
