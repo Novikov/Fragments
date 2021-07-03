@@ -8,7 +8,7 @@ class TemplateFragmentAdapter {
     fun createFragment(): TemplateFragment {
         val fragment = TemplateFragment()
         fragment.arguments = Bundle().apply {
-            putInt(ARG_OBJECT,position+1)
+            putInt(ARG_OBJECT,position)
             position++
         }
         return fragment

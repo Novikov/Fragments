@@ -19,15 +19,16 @@ class TemplateFragment : Fragment(R.layout.fragment_template) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  super.onCreateView(inflater, container, savedInstanceState)
+        val view = super.onCreateView(inflater, container, savedInstanceState)
 
-        val constraintLayout = view?.findViewById<ConstraintLayout>(R.id.fragment_template_container)
+        val constraintLayout =
+            view?.findViewById<ConstraintLayout>(R.id.fragment_template_container)
 
         val rnd = Random()
         val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         constraintLayout?.setBackgroundColor(color)
 
-        arguments?.takeIf {it.containsKey(ARG_OBJECT)}?.apply {
+        arguments?.takeIf { it.containsKey(ARG_OBJECT) }?.apply {
             val textView: TextView? = view?.findViewById(R.id.template_fragment_number)
             textView?.text = getInt(ARG_OBJECT).toString()
         }
