@@ -19,6 +19,11 @@ class AddPlusAddToBackStackActivity : AppCompatActivity(R.layout.activity_add) {
                 .commit()
         }
 
+        val popFragmentButton = findViewById<Button>(R.id.pop_button)
+        popFragmentButton.setOnClickListener {
+            supportFragmentManager.popBackStack()
+        }
+
         supportFragmentManager.addOnBackStackChangedListener {
             val backStackEntryContTextView:TextView = findViewById(R.id.back_stack_count_text_view)
             backStackEntryContTextView.text = supportFragmentManager.backStackEntryCount.toString()
