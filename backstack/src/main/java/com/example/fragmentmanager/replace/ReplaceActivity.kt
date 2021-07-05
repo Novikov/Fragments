@@ -23,6 +23,12 @@ class ReplaceActivity : AppCompatActivity(R.layout.activity_add) {
             supportFragmentManager.popBackStack()
         }
 
+        val removeButton = findViewById<Button>(R.id.remove_button)
+        removeButton.setOnClickListener {
+            val currentFragment = supportFragmentManager.findFragmentById(R.id.add_activity_fragment_container)
+            supportFragmentManager.beginTransaction().remove(currentFragment!!).commit()
+        }
+
         supportFragmentManager.addOnBackStackChangedListener {
             val backStackEntryContTextView:TextView = findViewById(R.id.back_stack_count_text_view)
             backStackEntryContTextView.text = supportFragmentManager.backStackEntryCount.toString()
