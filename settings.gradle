@@ -1,4 +1,5 @@
 rootProject.name = "Fragments"
 include ':fragment_creation'
-include ':backstack'
+include ':transactions'
 include ':bundle'
+include ':lifecycle'
