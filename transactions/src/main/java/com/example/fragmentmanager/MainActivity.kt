@@ -1,37 +1,71 @@
 package com.example.fragmentmanager
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fragmentmanager.databinding.ActivityMainBinding
 import com.example.fragmentmanager.fragment_templates.TemplateFragmentAdapter
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val templateFragmentAdapter = TemplateFragmentAdapter()
 
+        binding.backStackCountTextView.text = supportFragmentManager.backStackEntryCount.toString()
+
         binding.addButton.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .add(R.id.add_activity_fragment_container, templateFragmentAdapter.createFragment())
+                .add(R.id.fragment_container, templateFragmentAdapter.createFragment())
                 .commit()
+        }
 
-            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show()
+        binding.addToBackStackButton.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, templateFragmentAdapter.createFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.replaceButton.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, templateFragmentAdapter.createFragment())
+                .commit()
+        }
+
+        binding.replaceAndAddToBackStackButton.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, templateFragmentAdapter.createFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.removeButton.setOnClickListener {
+            val currentFragment = supportFragmentManager.fragments.first()
+            supportFragmentManager.beginTransaction().remove(currentFragment).commit()
+        }
+
+        binding.hideButton.setOnClickListener {
+            val currentFragment = supportFragmentManager.fragments.first()
+            supportFragmentManager.beginTransaction()
+                .hide(currentFragment)
+                .commit()
+        }
+
+        binding.showButton.setOnClickListener {
+            val currentFragment = supportFragmentManager.fragments.first()
+            supportFragmentManager.beginTransaction()
+                .show(currentFragment)
+                .commit()
         }
 
         binding.popButton.setOnClickListener {
             supportFragmentManager.popBackStack()
-        }
-
-        binding.removeButton.setOnClickListener {
-                        val currentFragment = supportFragmentManager.findFragmentById(R.id.add_activity_fragment_container)
-            supportFragmentManager.beginTransaction().remove(currentFragment!!).commit()
         }
 
         supportFragmentManager.addOnBackStackChangedListener {

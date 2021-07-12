@@ -4,7 +4,7 @@ import android.os.Bundle
 
 class TemplateFragmentAdapter {
     private var position = 1
-    private var height = 1200
+    private var height = 1000
 
     fun createFragment(): TemplateFragment {
         val fragment = TemplateFragment()
@@ -12,7 +12,7 @@ class TemplateFragmentAdapter {
             putInt(POSITION,position)
             putInt(HEIGHT,height)
             position++
-            height -= 10
+            height -= 30
         }
         return fragment
     }
