@@ -51,6 +51,13 @@
             android:layout_marginLeft="8dp"/>
 
         <Button
+            android:id="@+id/remove_and_add_to_backstack_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove + B"
+            android:layout_marginLeft="8dp"/>
+
+        <Button
             android:id="@+id/hide_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

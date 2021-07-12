@@ -50,6 +50,13 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().remove(currentFragment).commit()
         }
 
+        //Удалит фрагмент и положет такой же в бекстек
+        binding.removeAndAddToBackstackButton.setOnClickListener {
+            val currentFragment = supportFragmentManager.fragments.first()
+            supportFragmentManager.beginTransaction().remove(currentFragment).addToBackStack(null)
+                .commit()
+        }
+
         binding.hideButton.setOnClickListener {
             val currentFragment = supportFragmentManager.fragments.first()
             supportFragmentManager.beginTransaction()
@@ -69,7 +76,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         supportFragmentManager.addOnBackStackChangedListener {
-                binding.backStackCountTextView.text = supportFragmentManager.backStackEntryCount.toString()
+            binding.backStackCountTextView.text =
+                supportFragmentManager.backStackEntryCount.toString()
         }
     }
 }
