@@ -17,25 +17,27 @@ import java.util.*
 
 
 class TemplateFragment : Fragment(R.layout.fragment_template) {
+    var number: Int = 0;
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.i(TAG, "onAttach: ")
+        arguments?.takeIf { it.containsKey(POSITION) }?.apply {
+            number = getInt(POSITION)
+        }
+        Log.i(TAG, "$number onAttach: ")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(TAG, "onCreate: ")
+        Log.i(TAG, "$number onCreate: ")
     }
-
-    
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.i(TAG, "onCreateView: ")
+        Log.i(TAG, "$number onCreateView: ")
         val view = super.onCreateView(inflater, container, savedInstanceState)
 
         val fragment_container =
@@ -59,44 +61,44 @@ class TemplateFragment : Fragment(R.layout.fragment_template) {
 
     override fun onStart() {
         super.onStart()
-        Log.i(TAG, "onStart: ")
+
+        Log.i(TAG, "$number onStart: ")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(TAG, "onResume: ")
+        Log.i(TAG, "$number onResume: ")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(TAG, "onPause: ")
+        Log.i(TAG, "$number onPause: ")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.i(TAG, "onSaveInstanceState: ")
+        Log.i(TAG, "$number onSaveInstanceState: ")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(TAG, "onStop: ")
+        Log.i(TAG, "$number onStop: ")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.i(TAG, "onDestroyView: ")
+        Log.i(TAG, "$number onDestroyView: ")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(TAG, "onDestroy: ")
+        Log.i(TAG, "$number onDestroy: ")
     }
 
     override fun onDetach() {
         super.onDetach()
-        Log.i(TAG, "onDetach: ")
+        Log.i(TAG, "$number onDetach: ")
     }
-    
 
     companion object {
         private const val TAG = "TemplateFragment"
