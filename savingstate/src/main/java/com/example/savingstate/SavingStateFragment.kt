@@ -27,7 +27,7 @@ class SavingStateFragment : Fragment(R.layout.saving_state) {
     }
 
     companion object {
-        private const val TAG = "SavingStateFragment"
+        private const val TAG = "SavingStateString"
 
         fun newInstance(): SavingStateFragment{
             val args = Bundle()
