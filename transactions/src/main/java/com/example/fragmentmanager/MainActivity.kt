@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.addToBackStackButton.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .add(R.id.fragment_container, templateFragmentAdapter.createFragment())
-                .addToBackStack(null)
+                .addToBackStack(TAG)
                 .commit()
         }
 
@@ -72,12 +72,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.popButton.setOnClickListener {
-            supportFragmentManager.popBackStack()
+            supportFragmentManager.popBackStack(TAG,1)
         }
 
         supportFragmentManager.addOnBackStackChangedListener {
             binding.backStackCountTextView.text =
                 supportFragmentManager.backStackEntryCount.toString()
         }
+    }
+
+    companion object {
+        private const val TAG = "MainActivity"
     }
 }
