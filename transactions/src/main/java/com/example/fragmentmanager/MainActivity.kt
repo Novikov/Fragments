@@ -1,6 +1,7 @@
 package com.example.fragmentmanager
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fragmentmanager.databinding.ActivityMainBinding
 import com.example.fragmentmanager.fragment_templates.TemplateFragmentAdapter
@@ -72,7 +73,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.popButton.setOnClickListener {
-            supportFragmentManager.popBackStack(TAG,1)
+            supportFragmentManager.popBackStack()
+        }
+
+        binding.popImmediate.setOnClickListener {
+            val res = supportFragmentManager.popBackStackImmediate()
+            Log.i(TAG, "$res")
         }
 
         supportFragmentManager.addOnBackStackChangedListener {
